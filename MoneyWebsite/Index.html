@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi suất - 2QAH</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">2Q<span>AH</span> <span style="color:#e3000f">♦</span></div>
+        <button onclick="logout()" class="btn-logout">Đăng xuất</button>
+    </header>
+
+    <div class="main-content">
+        <div class="calc-inputs">
+            <div class="input-row">
+                <label>Giá trị bất động sản</label>
+                <div class="input-wrapper">
+                    <input type="text" id="property-value" value="50,000,000" oninput="updateFromProperty()">
+                    <span class="suffix">VND</span>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <label>Tỷ lệ vay</label>
+                <div class="range-wrapper">
+                    <span class="range-min">0%</span>
+                    <div class="range-container">
+                        <input type="range" id="loan-ratio" min="0" max="100" value="30" oninput="updateFromSlider()">
+                        <div id="ratio-tooltip" class="ratio-tooltip">30%</div>
+                    </div>
+                    <span class="range-max">100%</span>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <label>Số tiền vay</label>
+                <div class="input-wrapper">
+                    <input type="text" id="amount" value="15,000,000" oninput="updateFromInput()">
+                    <span class="suffix">VND</span>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <label>Thời gian vay (Tháng)</label>
+                <div class="input-wrapper"><input type="number" id="months" value="60" oninput="calculateLoan()"></div>
+            </div>
+
+            <div class="input-row">
+                <label>Lãi suất (%/Năm)</label>
+                <div class="input-wrapper"><input type="number" id="interest" value="10" step="0.1" oninput="calculateLoan()"></div>
+            </div>
+
+            <div class="input-row">
+                <label>Ngày giải ngân</label>
+                <div class="input-wrapper"><input type="date" id="disbursement-date" onchange="calculateLoan()"></div>
+            </div>
+
+            <div class="input-row">
+                <label>Phương thức tính lãi</label>
+                <select id="method" onchange="calculateLoan()">
+                    <option value="declining">Dư nợ giảm dần</option>
+                    <option value="flat">Dư nợ đều</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="calc-results">
+            <div class="result-group">
+                <label class="result-label">Số tiền trả tháng đầu</label>
+                <div class="result-value" id="monthly-payment-first">0 VND</div>
+            </div>
+            <div class="result-group">
+                <label class="result-label">Tổng lãi phải trả</label>
+                <div class="result-value" id="total-interest" style="font-size: 22px; color: #ffeb3b;">0 VND</div>
+            </div>
+            <div class="result-group">
+                <label class="result-label">Tổng gốc và lãi phải trả</label>
+                <div class="result-value" id="total-all" style="color: #00ff00;">0 VND</div>
+            </div>
+            <button class="btn-details" onclick="openModal()">Xem lịch trả nợ chi tiết</button>
+        </div>
+    </div>
+
+    <div id="modal-schedule" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Lịch trả nợ chi tiết</h3>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kỳ</th>
+                            <th>Ngày trả</th>
+                            <th>Gốc/tháng</th>
+                            <th>Lãi/tháng</th>
+                            <th>Tổng trả</th>
+                            <th>Gốc còn lại</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="Script.js"></script>
+    <script>
+        checkAuth();
+        document.getElementById('disbursement-date').valueAsDate = new Date();
+        calculateLoan();
+    </script>
+</body>
+</html>

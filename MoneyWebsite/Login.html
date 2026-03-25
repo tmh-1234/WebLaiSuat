@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập - 2QAH</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-logo">2Q<span>AH</span></div>
+        <h2>Chào mừng trở lại</h2>
+        <p>Vui lòng đăng nhập tài khoản của bạn</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input type="text" id="username" placeholder="Nhập tên đăng nhập" required>
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-auth">Đăng Nhập</button>
+        </form>
+        
+        <div class="auth-link">
+            Chưa có tài khoản? <a href="Register.html">Đăng ký ngay</a>
+        </div>
+    </div>
+    <script src="Script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', handleLogin);
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+* { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: #f0f2f5; margin: 0; }
+header { background: #fff; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.logo { color: #e3000f; font-weight: bold; font-size: 22px; }
+.logo span { color: #333; }
+
+.main-content { display: flex; max-width: 1000px; margin: 30px auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.calc-inputs { flex: 1.5; padding: 30px; }
+.input-row { margin-bottom: 15px; }
+.input-row label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 13px; }
+
+.input-wrapper { position: relative; }
+.input-wrapper input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; outline: none; }
+.suffix { position: absolute; right: 12px; top: 10px; color: #888; font-size: 13px; }
+
+/* Slider */
+.range-wrapper { display: flex; align-items: center; margin: 20px 0; position: relative; }
+.range-container { flex: 1; margin: 0 15px; position: relative; }
+input[type=range] { width: 100%; accent-color: #e3000f; }
+.ratio-tooltip { position: absolute; top: -25px; transform: translateX(-50%); background: #333; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
+
+/* Results Area */
+.calc-results { flex: 1; background: #333; color: #fff; padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+.result-label { font-size: 13px; opacity: 0.8; }
+.result-value { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+.btn-details { background: #e3000f; color: #fff; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+.btn-logout { background: #666; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+
+/* Modal Popup */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
+.modal-content { background: #fff; margin: 5% auto; width: 90%; max-width: 850px; border-radius: 10px; overflow: hidden; }
+.modal-header { padding: 15px; background: #f8f9fa; display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; }
+.modal-body { padding: 20px; max-height: 400px; overflow-y: auto; }
+.close-btn { font-size: 24px; cursor: pointer; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table th { background: #eee; padding: 10px; text-align: right; position: sticky; top: 0; }
+table td { padding: 10px; border-bottom: 1px solid #eee; text-align: right; }
+
+/* TỔNG THỂ TRANG AUTH */
+.auth-body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.auth-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.auth-container h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.auth-container p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* FORM NHẬP LIỆU */
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #e3000f;
+    box-shadow: 0 0 0 3px rgba(227, 0, 15, 0.1);
+}
+
+/* NÚT BẤM CHÍNH */
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    background: #e3000f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-auth:hover {
+    background: #c2000d;
+}
+
+/* LINK CHUYỂN ĐỔI */
+.auth-link {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.auth-link a {
+    color: #e3000f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* LOGO TRÊN FORM */
+.auth-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e3000f;
+    margin-bottom: 20px;
+}
+.auth-logo span { color: #333; }

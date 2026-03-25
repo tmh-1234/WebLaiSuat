@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký - 2QAH</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-logo">2Q<span>AH</span></div>
+        <h2>Tạo tài khoản</h2>
+        <p>Tham gia cùng chúng tôi ngay hôm nay</p>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input type="text" id="reg-username" placeholder="Ví dụ: nguyenvanan" required>
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <input type="password" id="reg-password" placeholder="Ít nhất 6 ký tự" required>
+            </div>
+            <div class="form-group">
+                <label>Xác nhận mật khẩu</label>
+                <input type="password" id="reg-confirm" placeholder="Nhập lại mật khẩu" required>
+            </div>
+            <button type="submit" class="btn-auth">Đăng Ký</button>
+        </form>
+        
+        <div class="auth-link">
+            Đã có tài khoản? <a href="Login.html">Đăng nhập</a>
+        </div>
+    </div>
+    <script src="Script.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            const pass = document.getElementById('reg-password').value;
+            const confirm = document.getElementById('reg-confirm').value;
+            if (pass !== confirm) {
+                e.preventDefault();
+                alert("Mật khẩu xác nhận không khớp!");
+            } else {
+                handleRegister(e);
+            }
+        });
+    </script>
+</body>
+</html>
